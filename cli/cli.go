@@ -235,6 +235,12 @@ func SetupCLI(args []string) error {
 					Destination: &runOptions.setupOptions.serverCert,
 					Usage:       "`PATH` to trusted server certificates"},
 				&cli.StringFlag{
+					Name:        "encryption-secret",
+					Aliases:     []string{"S"},
+					Destination: &runOptions.setupOptions.encryptionSecret,
+					Value:       "",
+					Usage:       "`secret string` to decrypt secret key"},
+				&cli.StringFlag{
 					Name:        "tenant-token",
 					Destination: &runOptions.setupOptions.tenantToken,
 					Usage:       "Hosted Mender tenanant `token`"},

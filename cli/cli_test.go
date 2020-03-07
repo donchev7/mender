@@ -96,9 +96,10 @@ func TestRunDaemon(t *testing.T) {
 			nil, nil, installer.DualRootfsDeviceConfig{}),
 	}
 
+	keyPassphrase := ""
 	pieces.AuthMgr = app.NewAuthManager(app.AuthManagerConfig{
 		AuthDataStore: pieces.Store,
-		KeyStore:      store.NewKeystore(pieces.Store, conf.DefaultKeyFile),
+		KeyStore:      store.NewKeystore(pieces.Store, conf.DefaultKeyFile, keyPassphrase),
 		IdentitySource: &dev.IdentityDataRunner{
 			Cmdr: stest.NewTestOSCalls("mac=foobar", 0),
 		},
