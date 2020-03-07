@@ -2,6 +2,7 @@
 [![codecov](https://codecov.io/gh/mendersoftware/mender/branch/master/graph/badge.svg)](https://codecov.io/gh/mendersoftware/mender)
 
 Mender: over-the-air updater for embedded Linux devices
+
 ==============================================
 
 Mender is an open source over-the-air (OTA) software updater for embedded Linux
