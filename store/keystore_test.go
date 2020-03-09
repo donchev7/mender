@@ -180,7 +180,7 @@ func TestKeystore(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-func TestKeystoreLoadPem(t *testing.T) {
+func TestKeystoreLoadPemFail(t *testing.T) {
 	// this should fail
 	nk, err := loadFromPem(bytes.NewBufferString(badPrivKey), "")
 	assert.Nil(t, nk)
@@ -193,6 +193,12 @@ func TestKeystoreLoadPemWithSecret(t *testing.T) {
 	assert.Nil(t, err)
 }
 
+func TestKeystoreLoadPemWithSecretFail(t *testing.T) {
+	// this should fail
+	nk, err := loadFromPem(bytes.NewBufferString(badPrivKey), "verysecure")
+	assert.Nil(t, nk)
+	assert.Error(t, err)
+}
 func TestKeystoreLoadPemWithWrongSecret(t *testing.T) {
 	nk, err := loadFromPem(bytes.NewBufferString(encryptedPrivKey), "wrongsecret")
 	assert.Nil(t, nk)
