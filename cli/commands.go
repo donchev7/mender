@@ -46,6 +46,7 @@ type runOptionsType struct {
 	fallbackConfig string
 	dataStore      string
 	imageFile      string
+	keyPassphrase  string
 	bootstrapForce bool
 	client.Config
 	logOptions   logOptionsType
@@ -69,7 +70,7 @@ func commonInit(config *conf.MenderConfig, opts *runOptionsType) (*app.MenderPie
 		return nil, errors.Errorf("%s is not a directory", opts.dataStore)
 	}
 
-	ks := getKeyStore(opts.dataStore, conf.DefaultKeyFile, opts.setupOptions.keyPassphrase)
+	ks := getKeyStore(opts.dataStore, conf.DefaultKeyFile, opts.keyPassphrase)
 	if ks == nil {
 		return nil, errors.New("failed to setup key storage")
 	}

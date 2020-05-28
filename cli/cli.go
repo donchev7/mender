@@ -277,11 +277,6 @@ func SetupCLI(args []string) error {
 				&cli.BoolFlag{
 					Name:  "quiet",
 					Usage: "Suppress informative prompts."},
-				&cli.StringFlag{
-					Name:        "key-passphrase",
-					Usage:       "Passphrase for decrypting an encrypted private key",
-					Value:       "",
-					Destination: &runOptions.setupOptions.keyPassphrase},
 			},
 		},
 		{
@@ -388,6 +383,11 @@ func SetupCLI(args []string) error {
 			Name:        "skipverify",
 			Usage:       "Skip certificate verification.",
 			Destination: &runOptions.Config.NoVerify},
+		&cli.StringFlag{
+			Name:        "key-passphrase",
+			Usage:       "Passphrase for decrypting an encrypted private key",
+			Value:       "",
+			Destination: &runOptions.keyPassphrase},
 	}
 	cli.HelpPrinter = upgradeHelpPrinter(cli.HelpPrinter)
 	cli.VersionPrinter = func(c *cli.Context) {

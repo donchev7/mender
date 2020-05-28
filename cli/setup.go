@@ -42,7 +42,6 @@ type setupOptionsType struct {
 	serverIP           string
 	serverCert         string
 	tenantToken        string
-	keyPassphrase      string
 	invPollInterval    int
 	retryPollInterval  int
 	updatePollInterval int
