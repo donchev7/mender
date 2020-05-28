@@ -277,6 +277,11 @@ func SetupCLI(args []string) error {
 				&cli.BoolFlag{
 					Name:  "quiet",
 					Usage: "Suppress informative prompts."},
+				&cli.StringFlag{
+					Name:        "key-passphrase",
+					Usage:       "Passphrase for decrypting an encrypted private key",
+					Value:       "",
+					Destination: &runOptions.setupOptions.keyPassphrase},
 			},
 		},
 		{
